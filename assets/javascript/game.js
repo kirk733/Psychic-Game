@@ -1,12 +1,13 @@
  
 $(document).ready(function() {
 
-  var letters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+  var letters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 
   var wins = 0;
   var losses = 0;
   var guessesLeft = 10;
-  var randomGuess = 0;
+  var randomLetter = letters[Math.floor(Math.random() * letters.length)];
+  console.log(randomLetter);
 
 
 // Let's start by grabbing a reference to the <span> below.
@@ -25,14 +26,17 @@ $(document).ready(function() {
             userText.textContent = "";
             guessesLeft = 10;
             userEntry.textContent = guessesLeft;
+            randomLetter = letters[Math.floor(Math.random() * letters.length)];
           }
 
-          else if ( "b" == event.key) {
+          else if ( randomLetter == event.key) {
             wins++;
             userWins.textContent = wins;
             userText.textContent = "";
             guessesLeft = 10;
-            userEntry.textContent = guessesLeft; 
+            userEntry.textContent = guessesLeft;
+            randomLetter = letters[Math.floor(Math.random() * letters.length)]; 
+            console.log(randomLetter);
           }
 
           else {
